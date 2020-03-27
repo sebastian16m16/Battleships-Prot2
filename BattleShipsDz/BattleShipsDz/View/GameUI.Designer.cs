@@ -28,98 +28,115 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.txtUserName = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.btnStart = new System.Windows.Forms.Button();
-            this.btnExit = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.txtServerIP = new System.Windows.Forms.TextBox();
-            this.txtServerPORT = new System.Windows.Forms.TextBox();
+            this.lblPlayerName = new System.Windows.Forms.Label();
+            this.PersonalGrid = new BattleShipsDz.Model.ViewModels.TileGrid();
+            this.BattleShipGrid = new BattleShipsDz.Model.ViewModels.TileGrid();
+            this.OpponentGrid = new BattleShipsDz.Model.ViewModels.TileGrid();
+            this.xBtn = new System.Windows.Forms.Button();
+            this.minimizeBtn = new System.Windows.Forms.Button();
+            this.TitleLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // txtUserName
+            // lblPlayerName
             // 
-            this.txtUserName.Location = new System.Drawing.Point(191, 112);
-            this.txtUserName.Name = "txtUserName";
-            this.txtUserName.Size = new System.Drawing.Size(100, 20);
-            this.txtUserName.TabIndex = 0;
+            this.lblPlayerName.AutoSize = true;
+            this.lblPlayerName.Font = new System.Drawing.Font("Showcard Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPlayerName.ForeColor = System.Drawing.SystemColors.ButtonShadow;
+            this.lblPlayerName.Location = new System.Drawing.Point(22, 13);
+            this.lblPlayerName.Name = "lblPlayerName";
+            this.lblPlayerName.Size = new System.Drawing.Size(44, 14);
+            this.lblPlayerName.TabIndex = 0;
+            this.lblPlayerName.Text = "label1";
             // 
-            // label1
+            // PersonalGrid
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(188, 86);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Name";
+            this.PersonalGrid.gridSize = new System.Drawing.Size(0, 0);
+            this.PersonalGrid.Location = new System.Drawing.Point(25, 67);
+            this.PersonalGrid.Name = "PersonalGrid";
+            this.PersonalGrid.Size = new System.Drawing.Size(481, 432);
+            this.PersonalGrid.TabIndex = 1;
+            this.PersonalGrid.tiles = null;
+            this.PersonalGrid.tilesImage = null;
             // 
-            // btnStart
+            // BattleShipGrid
             // 
-            this.btnStart.Location = new System.Drawing.Point(399, 267);
-            this.btnStart.Name = "btnStart";
-            this.btnStart.Size = new System.Drawing.Size(75, 23);
-            this.btnStart.TabIndex = 2;
-            this.btnStart.Text = "Start";
-            this.btnStart.UseVisualStyleBackColor = true;
-            this.btnStart.Click += new System.EventHandler(this.btnStart_Click);
+            this.BattleShipGrid.gridSize = new System.Drawing.Size(0, 0);
+            this.BattleShipGrid.Location = new System.Drawing.Point(585, 176);
+            this.BattleShipGrid.Name = "BattleShipGrid";
+            this.BattleShipGrid.Size = new System.Drawing.Size(59, 258);
+            this.BattleShipGrid.TabIndex = 2;
+            this.BattleShipGrid.tiles = null;
+            this.BattleShipGrid.tilesImage = null;
             // 
-            // btnExit
+            // OpponentGrid
             // 
-            this.btnExit.Location = new System.Drawing.Point(13, 267);
-            this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(75, 23);
-            this.btnExit.TabIndex = 3;
-            this.btnExit.Text = "Exit";
-            this.btnExit.UseVisualStyleBackColor = true;
+            this.OpponentGrid.gridSize = new System.Drawing.Size(0, 0);
+            this.OpponentGrid.Location = new System.Drawing.Point(689, 67);
+            this.OpponentGrid.Name = "OpponentGrid";
+            this.OpponentGrid.Size = new System.Drawing.Size(488, 432);
+            this.OpponentGrid.TabIndex = 3;
+            this.OpponentGrid.tiles = null;
+            this.OpponentGrid.tilesImage = null;
             // 
-            // label2
+            // xBtn
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(151, 221);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(57, 13);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "Server IP: ";
+            this.xBtn.BackColor = System.Drawing.SystemColors.InfoText;
+            this.xBtn.Cursor = System.Windows.Forms.Cursors.Default;
+            this.xBtn.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.xBtn.ForeColor = System.Drawing.Color.Maroon;
+            this.xBtn.Location = new System.Drawing.Point(1174, 8);
+            this.xBtn.Name = "xBtn";
+            this.xBtn.Size = new System.Drawing.Size(28, 24);
+            this.xBtn.TabIndex = 4;
+            this.xBtn.Text = "x";
+            this.xBtn.UseVisualStyleBackColor = false;
+            this.xBtn.Click += new System.EventHandler(this.xBtn_Click);
             // 
-            // label3
+            // minimizeBtn
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(165, 244);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(43, 13);
-            this.label3.TabIndex = 5;
-            this.label3.Text = "PORT: ";
+            this.minimizeBtn.BackColor = System.Drawing.SystemColors.InfoText;
+            this.minimizeBtn.Cursor = System.Windows.Forms.Cursors.Default;
+            this.minimizeBtn.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.minimizeBtn.ForeColor = System.Drawing.Color.Maroon;
+            this.minimizeBtn.Location = new System.Drawing.Point(1149, 8);
+            this.minimizeBtn.Name = "minimizeBtn";
+            this.minimizeBtn.Size = new System.Drawing.Size(28, 24);
+            this.minimizeBtn.TabIndex = 5;
+            this.minimizeBtn.Text = "-";
+            this.minimizeBtn.UseVisualStyleBackColor = false;
+            this.minimizeBtn.Click += new System.EventHandler(this.minimizeBtn_Click);
             // 
-            // txtServerIP
+            // TitleLabel
             // 
-            this.txtServerIP.Location = new System.Drawing.Point(215, 213);
-            this.txtServerIP.Name = "txtServerIP";
-            this.txtServerIP.Size = new System.Drawing.Size(100, 20);
-            this.txtServerIP.TabIndex = 6;
-            // 
-            // txtServerPORT
-            // 
-            this.txtServerPORT.Location = new System.Drawing.Point(215, 244);
-            this.txtServerPORT.Name = "txtServerPORT";
-            this.txtServerPORT.Size = new System.Drawing.Size(52, 20);
-            this.txtServerPORT.TabIndex = 7;
+            this.TitleLabel.AutoSize = true;
+            this.TitleLabel.Font = new System.Drawing.Font("Niagara Engraved", 24.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TitleLabel.ForeColor = System.Drawing.Color.DimGray;
+            this.TitleLabel.Location = new System.Drawing.Point(555, 13);
+            this.TitleLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.TitleLabel.Name = "TitleLabel";
+            this.TitleLabel.Size = new System.Drawing.Size(101, 35);
+            this.TitleLabel.TabIndex = 9;
+            this.TitleLabel.Text = "BattleShips";
             // 
             // GameUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(486, 302);
-            this.Controls.Add(this.txtServerPORT);
-            this.Controls.Add(this.txtServerIP);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.btnExit);
-            this.Controls.Add(this.btnStart);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.txtUserName);
+            this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.ClientSize = new System.Drawing.Size(1214, 626);
+            this.Controls.Add(this.TitleLabel);
+            this.Controls.Add(this.minimizeBtn);
+            this.Controls.Add(this.xBtn);
+            this.Controls.Add(this.OpponentGrid);
+            this.Controls.Add(this.BattleShipGrid);
+            this.Controls.Add(this.PersonalGrid);
+            this.Controls.Add(this.lblPlayerName);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "GameUI";
             this.Text = "GameUI";
+            this.Load += new System.EventHandler(this.GameUI_Load);
+            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.GameUI_MouseDown);
+            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.GameUI_MouseMove);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -127,13 +144,12 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox txtUserName;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button btnStart;
-        private System.Windows.Forms.Button btnExit;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox txtServerIP;
-        private System.Windows.Forms.TextBox txtServerPORT;
+        private System.Windows.Forms.Label lblPlayerName;
+        private Model.ViewModels.TileGrid PersonalGrid;
+        private Model.ViewModels.TileGrid BattleShipGrid;
+        private Model.ViewModels.TileGrid OpponentGrid;
+        private System.Windows.Forms.Button xBtn;
+        private System.Windows.Forms.Button minimizeBtn;
+        private System.Windows.Forms.Label TitleLabel;
     }
 }

@@ -9,3 +9,16 @@ D:\users\f93424c\Documents\Learning\C#\Visual Studio\Disertation\BattleShipsDz\B
 D:\users\f93424c\Documents\Learning\C#\Visual Studio\Disertation\BattleShipsDz\BattleShipsDz\obj\Debug\BattleShipsDz.exe
 D:\users\f93424c\Documents\Learning\C#\Visual Studio\Disertation\BattleShipsDz\BattleShipsDz\obj\Debug\BattleShipsDz.pdb
 D:\users\f93424c\Documents\Learning\C#\Visual Studio\Disertation\BattleShipsDz\BattleShipsDz\obj\Debug\BattleShipsDz.View.GameUI.resources
+D:\SCHool\Dizertatie\Battleships-Prot2\BattleShipsDz\BattleShipsDz\bin\Debug\BattleShipsDz.exe.config
+D:\SCHool\Dizertatie\Battleships-Prot2\BattleShipsDz\BattleShipsDz\bin\Debug\BattleShipsDz.exe
+D:\SCHool\Dizertatie\Battleships-Prot2\BattleShipsDz\BattleShipsDz\bin\Debug\BattleShipsDz.pdb
+D:\SCHool\Dizertatie\Battleships-Prot2\BattleShipsDz\BattleShipsDz\bin\Debug\SimpleTCP.dll
+D:\SCHool\Dizertatie\Battleships-Prot2\BattleShipsDz\BattleShipsDz\obj\Debug\BattleShipsDz.csprojAssemblyReference.cache
+D:\SCHool\Dizertatie\Battleships-Prot2\BattleShipsDz\BattleShipsDz\obj\Debug\BattleShipsDz.Properties.Resources.resources
+D:\SCHool\Dizertatie\Battleships-Prot2\BattleShipsDz\BattleShipsDz\obj\Debug\BattleShipsDz.View.Login.resources
+D:\SCHool\Dizertatie\Battleships-Prot2\BattleShipsDz\BattleShipsDz\obj\Debug\BattleShipsDz.csproj.GenerateResource.cache
+D:\SCHool\Dizertatie\Battleships-Prot2\BattleShipsDz\BattleShipsDz\obj\Debug\BattleShipsDz.csproj.CoreCompileInputs.cache
+D:\SCHool\Dizertatie\Battleships-Prot2\BattleShipsDz\BattleShipsDz\obj\Debug\BattleShipsDz.csproj.CopyComplete
+D:\SCHool\Dizertatie\Battleships-Prot2\BattleShipsDz\BattleShipsDz\obj\Debug\BattleShipsDz.exe
+D:\SCHool\Dizertatie\Battleships-Prot2\BattleShipsDz\BattleShipsDz\obj\Debug\BattleShipsDz.pdb
+D:\SCHool\Dizertatie\Battleships-Prot2\BattleShipsDz\BattleShipsDz\obj\Debug\BattleShipsDz.View.GameUI.resources
