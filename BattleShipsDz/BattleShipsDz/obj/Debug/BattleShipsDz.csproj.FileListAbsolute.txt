@@ -1,0 +1,11 @@
+D:\users\f93424c\Documents\Learning\C#\Visual Studio\Disertation\BattleShipsDz\BattleShipsDz\obj\Debug\BattleShipsDz.csprojAssemblyReference.cache
+D:\users\f93424c\Documents\Learning\C#\Visual Studio\Disertation\BattleShipsDz\BattleShipsDz\obj\Debug\BattleShipsDz.Properties.Resources.resources
+D:\users\f93424c\Documents\Learning\C#\Visual Studio\Disertation\BattleShipsDz\BattleShipsDz\obj\Debug\BattleShipsDz.csproj.GenerateResource.cache
+D:\users\f93424c\Documents\Learning\C#\Visual Studio\Disertation\BattleShipsDz\BattleShipsDz\bin\Debug\BattleShipsDz.exe.config
+D:\users\f93424c\Documents\Learning\C#\Visual Studio\Disertation\BattleShipsDz\BattleShipsDz\bin\Debug\BattleShipsDz.exe
+D:\users\f93424c\Documents\Learning\C#\Visual Studio\Disertation\BattleShipsDz\BattleShipsDz\bin\Debug\BattleShipsDz.pdb
+D:\users\f93424c\Documents\Learning\C#\Visual Studio\Disertation\BattleShipsDz\BattleShipsDz\bin\Debug\SimpleTCP.dll
+D:\users\f93424c\Documents\Learning\C#\Visual Studio\Disertation\BattleShipsDz\BattleShipsDz\obj\Debug\BattleShipsDz.csproj.CopyComplete
+D:\users\f93424c\Documents\Learning\C#\Visual Studio\Disertation\BattleShipsDz\BattleShipsDz\obj\Debug\BattleShipsDz.exe
+D:\users\f93424c\Documents\Learning\C#\Visual Studio\Disertation\BattleShipsDz\BattleShipsDz\obj\Debug\BattleShipsDz.pdb
+D:\users\f93424c\Documents\Learning\C#\Visual Studio\Disertation\BattleShipsDz\BattleShipsDz\obj\Debug\BattleShipsDz.View.GameUI.resources
