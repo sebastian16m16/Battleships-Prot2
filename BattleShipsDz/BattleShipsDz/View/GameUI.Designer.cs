@@ -35,6 +35,7 @@
             this.xBtn = new System.Windows.Forms.Button();
             this.minimizeBtn = new System.Windows.Forms.Button();
             this.TitleLabel = new System.Windows.Forms.Label();
+            this.BattleShipsGrid = new BattleShipsDz.Model.ViewModels.TileGrid();
             this.SuspendLayout();
             // 
             // lblPlayerName
@@ -118,6 +119,16 @@
             this.TitleLabel.TabIndex = 9;
             this.TitleLabel.Text = "BattleShips";
             // 
+            // BattleShipsGrid
+            // 
+            this.BattleShipsGrid.gridSize = new System.Drawing.Size(0, 0);
+            this.BattleShipsGrid.Location = new System.Drawing.Point(585, 176);
+            this.BattleShipsGrid.Name = "BattleShipsGrid";
+            this.BattleShipsGrid.Size = new System.Drawing.Size(59, 258);
+            this.BattleShipsGrid.TabIndex = 2;
+            this.BattleShipsGrid.tiles = null;
+            this.BattleShipsGrid.tilesImage = null;
+            // 
             // GameUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -128,6 +139,7 @@
             this.Controls.Add(this.minimizeBtn);
             this.Controls.Add(this.xBtn);
             this.Controls.Add(this.OpponentGrid);
+            this.Controls.Add(this.BattleShipsGrid);
             this.Controls.Add(this.BattleShipGrid);
             this.Controls.Add(this.PersonalGrid);
             this.Controls.Add(this.lblPlayerName);
@@ -151,5 +163,6 @@
         private System.Windows.Forms.Button xBtn;
         private System.Windows.Forms.Button minimizeBtn;
         private System.Windows.Forms.Label TitleLabel;
+        private Model.ViewModels.TileGrid BattleShipsGrid;
     }
 }

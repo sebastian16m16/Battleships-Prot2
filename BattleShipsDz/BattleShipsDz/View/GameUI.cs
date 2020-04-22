@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using BattleShipsDz.Controller.ClientOP;
 using BattleShipsDz.Model.ViewModels;
+using BattleShipsDz.Controller.GameOP;
 
 namespace BattleShipsDz.View
 {
@@ -21,6 +22,9 @@ namespace BattleShipsDz.View
         private string Host { get; set; }
         private int PORT { get; set; }
         private Point lastPoint { get; set; }
+        private Tile SelectedBoat { get; set; }
+        private GridManagement OpponentGridManagement { get; set; }
+        private GridManagement PersonalGridManagement { get; set; }
 
 
 
@@ -40,14 +44,33 @@ namespace BattleShipsDz.View
 
             // PERSONAL GRID
             this.PersonalGrid.LoadGrid(new Size(10, 10), BattleShipsDz.Properties.Resources.blankTile);
+            this.PersonalGridManagement = new GridManagement(PersonalGrid);
+
+            foreach(Tile tile in PersonalGrid.Controls)
+            {
+                tile.MouseDown += PersonalGridMouseDown;
+            }
 
             //OPPONENT GRID
             this.OpponentGrid.LoadGrid(new Size(10, 10), BattleShipsDz.Properties.Resources.opponentTile);
+            this.OpponentGridManagement = new GridManagement(OpponentGrid);
+
+            foreach(Tile tile in OpponentGrid.Controls)
+            {
+                tile.MouseDown += OpponentGridMouseDown;
+            }
 
             //Battleships GRID
-            this.BattleShipGrid.LoadGrid(new Size(1, 5), BattleShipsDz.Properties.Resources.blankTile);
+            this.BattleShipsGrid.LoadGrid(new Size(1, 5), BattleShipsDz.Properties.Resources.blankTile, true);
+
+            foreach(Tile tile in BattleShipGrid.Controls)
+            {
+                tile.MouseDown += BattleShipGridMouseDown;
+            }
 
         }
+
+       
 
         private void xBtn_Click(object sender, EventArgs e)
         {
@@ -71,6 +94,25 @@ namespace BattleShipsDz.View
                 this.Left += e.X - lastPoint.X;
                 this.Top += e.Y - lastPoint.Y;
             }
+        }
+
+        //
+        // TILES Behavior
+        //
+
+        private void OpponentGridMouseDown(object sender, MouseEventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void PersonalGridMouseDown(object sender, MouseEventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void BattleShipGridMouseDown(object sender, MouseEventArgs e)
+        {
+            SelectedBoat = (Tile)sender;
         }
     }
 }

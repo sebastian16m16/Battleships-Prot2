@@ -46,7 +46,11 @@ namespace BattleShipsDz.Model.ViewModels
             this.type = typeof(Tile);
             this.tileName = "freeTile";
 
+            
+
         }
+
+
 
         public void setState(TileState newState)
         {

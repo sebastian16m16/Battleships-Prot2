@@ -50,6 +50,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controller\ClientOP\ClientOP.cs" />
+    <Compile Include="Controller\GameOP\GridManagement.cs" />
     <Compile Include="Model\BackgroudMatrix\ElementState.cs" />
     <Compile Include="Model\Connection\BSClient.cs" />
     <Compile Include="Model\Connection\ClientSTATE.cs" />
