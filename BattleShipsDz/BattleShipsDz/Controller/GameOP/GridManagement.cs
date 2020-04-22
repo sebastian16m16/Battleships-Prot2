@@ -10,20 +10,102 @@ namespace BattleShipsDz.Controller.GameOP
     class GridManagement
     {
         private Tile SelectedTile { get; set; }
-        private TileGrid CurrentTileGrid { get; set; }
+        private TileGrid TileGrid { get; set; }
+        private Tile From { get; set; }
+        private Tile To { get; set; }
+        private bool clicked { get; set; }
+        private Tile Blank = new Tile();
 
         public GridManagement(TileGrid currentTileGrid)
         {
-           this.CurrentTileGrid = currentTileGrid;
+           this.TileGrid = currentTileGrid;
+            this.clicked = false;
         }
 
-        public void PlaceBoat(Tile SelectedBoat, Tile FromWhere)
+        public bool Manage(Tile SelectedBoat, Tile LogicTile)
         {
-            this.SelectedTile = SelectedBoat;
+            this.clicked = !clicked;
 
-            
+            if (clicked)
+            {
+                this.SelectedTile = SelectedBoat;
+                LogicTile.inheritTileInfo(SelectedTile);
+                this.From = LogicTile;
+            }
+            else
+            {
+                if (PlaceBoat(LogicTile))
+                    this.SelectedTile = Blank;
+                else
+                    this.clicked = true;
+            }
+
+            return clicked;
+        }
+
+        private bool PlaceBoat(Tile ToWhere)
+        {
+            this.To = ToWhere;
+
+            if(To.x > To.y)
+            {
+                if(To.x > this.From.x)
+                {
+                    AddTilesOnXAxis();
+                }
+                else if(To.x < this.From.x)
+                {
+                    AddTilesOnNegativeXAxis();
+                }
+                else
+                {
+                    return false;
+                }
+                
+            }
+            else
+            {
+                if (To.y > this.From.y)
+                {
+                    AddTilesOnYAxis();
+                }
+                else if (To.y < this.From.y)
+                {
+                    AddTilesOnNegativeYAxis();
+                }
+                else
+                {
+                    return false;
+                }
+                
+            }
+            return true;
+        }
 
 
+        private bool AddTilesOnXAxis()
+        {
+            if((this.From.x + this.SelectedTile.SQsize) < this.TileGrid.tiles.GetLength(0))
+            {
+               
+            }
+           
+            return false;
+        }
+
+        private bool AddTilesOnNegativeXAxis()
+        {
+            return false;
+        }
+
+        private bool AddTilesOnYAxis()
+        {
+            return false;
+        }
+
+        private bool AddTilesOnNegativeYAxis()
+        {
+            return false;
         }
     }
 }

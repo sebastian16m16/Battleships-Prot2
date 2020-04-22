@@ -25,6 +25,8 @@ namespace BattleShipsDz.Model.ViewModels
 
         private Image blank = Properties.Resources.blankTile;
         public string tileName { get; set; }
+        public Label NoOfBoatsLeft { get; set; }
+        public Label SizeOfBoat { get; set; }
 
 
         public Tile() { }
@@ -46,8 +48,6 @@ namespace BattleShipsDz.Model.ViewModels
             this.type = typeof(Tile);
             this.tileName = "freeTile";
 
-            
-
         }
 
 
@@ -66,7 +66,7 @@ namespace BattleShipsDz.Model.ViewModels
 
         public void inheritTileInfo(Tile o)
         {
-            this.state = o.state;
+            
             this.Image = o.Image;
             this.Name = o.Name;
             this.SQsize = o.SQsize;

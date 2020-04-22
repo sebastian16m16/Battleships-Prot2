@@ -16,8 +16,6 @@ namespace BattleShipsDz.Model.ViewModels
         public Tile[,] tiles { get; set; }
         public Image tilesImage { get; set; }
         private bool InfoGrid { get; set; }
-        public Label[] NoOfBoatsLeft { get; set; }
-        public Label[] SizeOfBoat { get; set; }
 
 
         public void LoadGrid(Size gridSize, Image tileImage)
@@ -49,9 +47,6 @@ namespace BattleShipsDz.Model.ViewModels
             this.tiles = new Tile[gridSize.Width, gridSize.Height];
             this.tilesImage = tileImage;
 
-            this.NoOfBoatsLeft = new Label[gridSize.Height]; 
-            this.SizeOfBoat = new Label[gridSize.Height]; ;
-
             tiles[0, 0] = new BattleShipsDz.Model.ViewModels.Boats.CruiserBoat(0, 0);
             tiles[0, 1] = new BattleShipsDz.Model.ViewModels.Boats.PatrolBoat(0, 1);
             tiles[0, 2] = new BattleShipsDz.Model.ViewModels.Boats.RedCrowBoat(0, 2);
@@ -62,33 +57,6 @@ namespace BattleShipsDz.Model.ViewModels
             for (int i=0; i<gridSize.Height; i++)
             {
                 this.Controls.Add(tiles[0, i]);
-
-                //
-                //Labels Locations
-                //
-
-                //
-                //Number of Boats Left
-                //
-                NoOfBoatsLeft[i] = new Label();
-                NoOfBoatsLeft[i].Size = new Size(11, 11);
-                NoOfBoatsLeft[i].Text = tiles[0, i].ships.ToString();
-                NoOfBoatsLeft[i].ForeColor = Color.White;
-                NoOfBoatsLeft[i].BackColor = tiles[0, i].getTileColor();
-                NoOfBoatsLeft[i].Location = tiles[0, i].getNumberLabelLocation();
-                tiles[0, i].Controls.Add(NoOfBoatsLeft[i]);
-
-                //
-                //Size of the boat
-                //
-                SizeOfBoat[i] = new Label();
-                SizeOfBoat[i].Size = new Size(11, 11);
-                SizeOfBoat[i].Text = tiles[0, i].SQsize.ToString();
-                SizeOfBoat[i].ForeColor = Color.White;
-                SizeOfBoat[i].BackColor = tiles[0, i].getTileColor();
-                SizeOfBoat[i].Location = tiles[0, i].getSizeLabelLocation();
-                tiles[0, i].Controls.Add(SizeOfBoat[i]);
-
             }
 
         }

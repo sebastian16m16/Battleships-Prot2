@@ -128,6 +128,7 @@
             this.BattleShipsGrid.TabIndex = 2;
             this.BattleShipsGrid.tiles = null;
             this.BattleShipsGrid.tilesImage = null;
+            this.BattleShipsGrid.MouseDown += new System.Windows.Forms.MouseEventHandler(this.BattleShipGridMouseDown);
             // 
             // GameUI
             // 
