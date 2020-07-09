@@ -63,15 +63,19 @@ namespace BattleShipsDz.Model.ViewModels
 
         public void inheritGrid(TileGrid other)
         {
-            for (int i = 0; i < gridSize.Width; i++)
+            if(other != null)
             {
-                for (int j = 0; j < gridSize.Height; j++)
+                for (int i = 0; i < gridSize.Width; i++)
                 {
-                    // Console.WriteLine(" BEFORE: This.name[" + i + "," + j + "] = " + this.tiles[i, j].tileName + ",   Other.name[" + i + "," + j + "] = " + other.tiles[i, j].tileName);
-                    this.tiles[i, j].inheritTileInfo(other.tiles[i, j]);
-                    //Console.WriteLine(" AFTER: This.name[" + i + "," + j + "] = " + this.tiles[i, j].tileName + ",   Other.name[" + i + "," + j + "] = " + other.tiles[i, j].tileName);
+                    for (int j = 0; j < gridSize.Height; j++)
+                    {
+                        // Console.WriteLine(" BEFORE: This.name[" + i + "," + j + "] = " + this.tiles[i, j].tileName + ",   Other.name[" + i + "," + j + "] = " + other.tiles[i, j].tileName);
+                        this.tiles[i, j].inheritTileInfo(other.tiles[i, j]);
+                        //Console.WriteLine(" AFTER: This.name[" + i + "," + j + "] = " + this.tiles[i, j].tileName + ",   Other.name[" + i + "," + j + "] = " + other.tiles[i, j].tileName);
+                    }
                 }
             }
+                
         }
 
     }

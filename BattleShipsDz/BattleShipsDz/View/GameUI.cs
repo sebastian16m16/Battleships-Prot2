@@ -23,9 +23,8 @@ namespace BattleShipsDz.View
         private int PORT { get; set; }
         private Point lastPoint { get; set; }
         private Tile SelectedBoat { get; set; }
-        private Tile Blank = new Tile();
-        private GridManagement OpponentGridManagement { get; set; }
-        private GridManagement PersonalGridManagement { get; set; }
+        private PersonalGridManagement OpponentGridManagement { get; set; }
+        private PersonalGridManagement PersonalGridManagement { get; set; }
 
 
 
@@ -45,7 +44,7 @@ namespace BattleShipsDz.View
 
             // PERSONAL GRID
             this.PersonalGrid.LoadGrid(new Size(10, 10), BattleShipsDz.Properties.Resources.blankTile);
-            this.PersonalGridManagement = new GridManagement(PersonalGrid);
+            this.PersonalGridManagement = new PersonalGridManagement(PersonalGrid);
 
             foreach(Tile tile in PersonalGrid.Controls)
             {
@@ -54,7 +53,7 @@ namespace BattleShipsDz.View
 
             //OPPONENT GRID
             this.OpponentGrid.LoadGrid(new Size(10, 10), BattleShipsDz.Properties.Resources.opponentTile);
-            this.OpponentGridManagement = new GridManagement(OpponentGrid);
+            this.OpponentGridManagement = new PersonalGridManagement(OpponentGrid);
 
             foreach(Tile tile in OpponentGrid.Controls)
             {
@@ -70,8 +69,6 @@ namespace BattleShipsDz.View
             }
 
         }
-
-       
 
         private void xBtn_Click(object sender, EventArgs e)
         {
@@ -110,7 +107,8 @@ namespace BattleShipsDz.View
         {
             if(!this.PersonalGridManagement.Manage(this.SelectedBoat, (Tile)sender))
             {
-                this.SelectedBoat = Blank;
+                this.SelectedBoat = null;
+                return;
             }
         }
 
