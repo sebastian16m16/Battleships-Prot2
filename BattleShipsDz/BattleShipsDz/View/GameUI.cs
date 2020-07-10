@@ -10,6 +10,8 @@ using System.Windows.Forms;
 using BattleShipsDz.Controller.ClientOP;
 using BattleShipsDz.Model.ViewModels;
 using BattleShipsDz.Controller.GameOP;
+using BattleShipsDz.Model.Events;
+using System.Diagnostics;
 
 namespace BattleShipsDz.View
 {
@@ -25,6 +27,10 @@ namespace BattleShipsDz.View
         private Tile SelectedBoat { get; set; }
         private PersonalGridManagement OpponentGridManagement { get; set; }
         private PersonalGridManagement PersonalGridManagement { get; set; }
+        private bool OneMoveUndo { get; set; }
+        private Stack<EventState> EventStack { get; set; }
+        private EventState tempState { get; set; }
+        private Tile Blank { get; set; }
 
 
 
@@ -34,6 +40,8 @@ namespace BattleShipsDz.View
             this.PlayerName = PlayerName;
             this.Host = Host;
             this.PORT = Port;
+            this.EventStack = new Stack<EventState>();
+            this.Blank = new Tile();
         }
 
         private void GameUI_Load(object sender, EventArgs e)
@@ -82,9 +90,14 @@ namespace BattleShipsDz.View
 
         private void GameUI_MouseDown(object sender, MouseEventArgs e)
         {
-            lastPoint = new Point(e.X, e.Y);
+            if(e.Button == MouseButtons.Left)
+            {
+                lastPoint = new Point(e.X, e.Y);
+            }
+
         }
 
+        [DebuggerStepThrough]
         private void GameUI_MouseMove(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
@@ -105,17 +118,47 @@ namespace BattleShipsDz.View
 
         private void PersonalGridMouseDown(object sender, MouseEventArgs e)
         {
-            if(!this.PersonalGridManagement.Manage(this.SelectedBoat, (Tile)sender))
+            if(e.Button == MouseButtons.Left)
             {
-                this.SelectedBoat = null;
-                return;
+                if (!SelectedBoat.Equals(Blank))
+                {
+                    this.EventStack.Push(new EventState(PersonalGrid, BattleShipGrid, false, SelectedBoat, this.PersonalGridManagement.clicked));
+                    if (!this.PersonalGridManagement.Manage(this.SelectedBoat, (Tile)sender))
+                    {
+                        this.SelectedBoat = Blank;
+                    }
+                    OneMoveUndo = false;
+                }
+                
+            }else if(e.Button == MouseButtons.Right)
+            {
+                //if(!OneMoveUndo)
+                //{
+                if(EventStack.Count != 0)
+                {
+                    this.tempState = EventStack.Pop();
+                    this.PersonalGridManagement.clicked = tempState.Clicked;
+                    this.SelectedBoat = tempState.GetSelectedBoat();
+                    this.PersonalGrid.inheritGrid(tempState.getLastPersonalGrid());
+                    OneMoveUndo = true;
+                }
+                
+                //}
+                //else
+                //{
+
+                //    MessageBox.Show("No more undo moves!");
+                //}
+
             }
+            
         }
 
         private void BattleShipGridMouseDown(object sender, MouseEventArgs e)
         {
             if(((Tile)sender).ships > 0)
                 SelectedBoat = (Tile)sender;
+            this.EventStack.Push(new EventState(PersonalGrid, BattleShipGrid, true, SelectedBoat, this.PersonalGridManagement.clicked));
         }
     }
 }

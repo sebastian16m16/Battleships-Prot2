@@ -14,7 +14,7 @@ namespace BattleShipsDz.Controller.GameOP
         private TileGrid TileGrid { get; set; }
         private Tile From { get; set; }
         private Tile To { get; set; }
-        private bool clicked { get; set; }
+        public bool clicked { get; set; }
 
         private Tile Blank = new Tile();
 
@@ -23,7 +23,6 @@ namespace BattleShipsDz.Controller.GameOP
            this.TileGrid = currentTileGrid;
             this.clicked = false;
         }
-
         public bool Manage(Tile SelectedBoat, Tile LogicTile)
         {
             this.clicked = !clicked;
@@ -43,9 +42,7 @@ namespace BattleShipsDz.Controller.GameOP
             }
             else
             {
-                if (PlaceBoat(LogicTile))
-                    this.SelectedTile = null;
-                else
+                if (!PlaceBoat(LogicTile))
                     this.clicked = true;
             }
 
@@ -59,22 +56,23 @@ namespace BattleShipsDz.Controller.GameOP
         private bool PlaceBoat(Tile ToWhere)
         {
             this.To = ToWhere;
+            bool ret = false;
 
             if(To.x > From.x)
             {
                 if (Math.Abs(To.x - From.x) >= Math.Abs(To.y - From.y))
                 {
-                    AddTilesOnXAxis();
+                    ret = AddTilesOnXAxis();
                 }
                 else
                 {
                     if (To.y > From.y)
                     {
-                        AddTilesOnYAxis();
+                        ret = AddTilesOnYAxis();
                     }
                     else
                     {
-                        AddTilesOnNegativeYAxis();
+                        ret = AddTilesOnNegativeYAxis();
                     }
                     
                 }
@@ -83,33 +81,29 @@ namespace BattleShipsDz.Controller.GameOP
             {
                 if((From.x - To.x) >= (To.y - From.y))
                 {
-                    AddTilesOnNegativeXAxis();
+                    ret = AddTilesOnNegativeXAxis();
                 }
                 else
                 {
-                    AddTilesOnYAxis();
+                    ret = AddTilesOnYAxis();
                 }
             }
             else if(To.x < From.x)
             {
                 if ((From.x - To.x) >= (From.y - To.y))
                 {
-                    AddTilesOnNegativeXAxis();
+                    ret = AddTilesOnNegativeXAxis();
                 }
                 else
                 {
-                    AddTilesOnNegativeYAxis();
+                    ret = AddTilesOnNegativeYAxis();
                 }
             }
             else if(To.y < From.y)
             {
-                AddTilesOnNegativeYAxis();
+                ret = AddTilesOnNegativeYAxis();
             }
-            else
-            {
-                return false;
-            }
-            return true;
+            return ret;
         }
 
         private bool AddTilesOnXAxis()

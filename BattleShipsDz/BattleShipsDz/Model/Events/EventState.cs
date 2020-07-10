@@ -9,34 +9,43 @@ namespace BattleShipsDz.Model.Events
 {
     class EventState
     {
+        public bool BoatPlaced = false;
         private TileGrid personalGrid = new TileGrid();
         private TileGrid battleShipsGrid = new TileGrid();
-        private byte clicks { get; set; }
+        private Tile SelectedBoat = new Tile();
+        public bool Clicked = false;
 
-        public EventState(TileGrid pGrid, TileGrid bGrid, byte clicks)
+        public EventState(TileGrid pGrid, TileGrid bGrid, bool PlacedBoat, Tile lastTile, bool clicked)
         {
             this.personalGrid.LoadGrid(pGrid.gridSize, pGrid.tilesImage);
             this.battleShipsGrid.LoadGrid(bGrid.gridSize, bGrid.tilesImage);
 
             this.personalGrid.inheritGrid(pGrid);
             this.battleShipsGrid.inheritGrid(bGrid);
-
-            this.clicks = clicks;
+            this.BoatPlaced = PlacedBoat;
+            this.SelectedBoat = lastTile;
+            this.Clicked = clicked;
         }
 
         public TileGrid getLastPersonalGrid()
         {
-            return personalGrid;
+            return this.personalGrid;
         }
 
         public TileGrid getLastBattleshipGrid()
         {
-            return battleShipsGrid;
+            return this.battleShipsGrid;
         }
 
-        public byte getClicks()
+        public void UpdateEventState(TileGrid pGrid, TileGrid bGrid)
         {
-            return this.clicks;
+            this.personalGrid = pGrid;
+            this.battleShipsGrid = bGrid;
+        }
+
+        public Tile GetSelectedBoat()
+        {
+            return this.SelectedBoat;
         }
     }
 }

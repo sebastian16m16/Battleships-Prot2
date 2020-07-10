@@ -77,8 +77,6 @@ namespace BattleShipsDz.Model.ViewModels
 
         }
 
-
-
         public void updateGridLocation(Point newLocation)
         {
             GridLocation = newLocation;
