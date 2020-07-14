@@ -65,9 +65,9 @@ namespace BattleShipsDz.Model.ViewModels
         {
             if(other != null)
             {
-                for (int i = 0; i < gridSize.Width; i++)
+                for (int j = 0; j < gridSize.Width; j++)
                 {
-                    for (int j = 0; j < gridSize.Height; j++)
+                    for (int i = 0; i < gridSize.Height; i++)
                     {
                         // Console.WriteLine(" BEFORE: This.name[" + i + "," + j + "] = " + this.tiles[i, j].tileName + ",   Other.name[" + i + "," + j + "] = " + other.tiles[i, j].tileName);
                         this.tiles[i, j].inheritTileInfo(other.tiles[i, j]);

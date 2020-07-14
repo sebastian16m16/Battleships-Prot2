@@ -33,6 +33,7 @@ namespace BattleShipsDz.Controller.GameOP
                 {
                     this.SelectedTile = SelectedBoat;
                     LogicTile.inheritTileInfo(SelectedTile);
+                    LogicTile.state = TileState.OCCUPIED;
                     this.From = LogicTile;
                 }
                 else
@@ -110,10 +111,16 @@ namespace BattleShipsDz.Controller.GameOP
         {
             if((this.From.x + this.SelectedTile.SQsize) < this.TileGrid.tiles.GetLength(0)+1)
             {
-               for(int i=this.From.x; i<this.SelectedTile.SQsize + this.From.x; i++)
-                {
+               for(int i=this.From.x+1; i<this.SelectedTile.SQsize + this.From.x; i++)
+               {
+                    if (this.TileGrid.tiles[i, this.From.y].state == TileState.OCCUPIED)
+                        return false;
+               }
+               for(int i=this.From.x+1; i<this.SelectedTile.SQsize + this.From.x; i++)
+               {
                     this.TileGrid.tiles[i, this.From.y].inheritTileInfo(SelectedTile);
-                }
+                    this.TileGrid.tiles[i, this.From.y].state = TileState.OCCUPIED;
+               }
                 return true;
             }
            
@@ -124,9 +131,15 @@ namespace BattleShipsDz.Controller.GameOP
         {
             if ((this.From.x - (this.SelectedTile.SQsize - 1)) >= 0)
             {
-                for (int i = this.From.x; i >this.From.x - this.SelectedTile.SQsize; i--)
+                for (int i = this.From.x - 1; i > this.From.x - this.SelectedTile.SQsize; i--)
+                {
+                    if (this.TileGrid.tiles[i, this.From.y].state == TileState.OCCUPIED)
+                        return false;
+                }
+                for (int i = this.From.x-1; i >this.From.x - this.SelectedTile.SQsize; i--)
                 {
                     this.TileGrid.tiles[i, this.From.y].inheritTileInfo(SelectedTile);
+                    this.TileGrid.tiles[i, this.From.y].state = TileState.OCCUPIED;
                 }
                 return true;
             }
@@ -138,9 +151,15 @@ namespace BattleShipsDz.Controller.GameOP
         {
             if ((this.From.y + this.SelectedTile.SQsize) < this.TileGrid.tiles.GetLength(0) + 1)
             {
-                for (int i = this.From.y; i < this.SelectedTile.SQsize + this.From.y; i++)
+                for (int i = this.From.y + 1; i < this.SelectedTile.SQsize + this.From.y; i++)
+                {
+                    if (this.TileGrid.tiles[this.From.y, i].state == TileState.OCCUPIED)
+                        return false;
+                }
+                for (int i = this.From.y+1; i < this.SelectedTile.SQsize + this.From.y; i++)
                 {
                     this.TileGrid.tiles[this.From.x, i].inheritTileInfo(SelectedTile);
+                    this.TileGrid.tiles[i, this.From.y].state = TileState.OCCUPIED;
                 }
                 return true;
             }
@@ -152,9 +171,15 @@ namespace BattleShipsDz.Controller.GameOP
         {
             if ((this.From.y - (this.SelectedTile.SQsize - 1)) >= 0)
             {
-                for (int i = this.From.y; i > this.From.y - this.SelectedTile.SQsize; i--)
+                for (int i = this.From.y - 1; i > this.From.y - this.SelectedTile.SQsize; i--)
+                {
+                    if (this.TileGrid.tiles[this.From.x, i].state == TileState.OCCUPIED)
+                        return false;
+                }
+                for (int i = this.From.y - 1; i > this.From.y - this.SelectedTile.SQsize; i--)
                 {
                     this.TileGrid.tiles[this.From.x, i].inheritTileInfo(SelectedTile);
+                    this.TileGrid.tiles[i, this.From.y].state = TileState.OCCUPIED;
                 }
                 return true;
             }

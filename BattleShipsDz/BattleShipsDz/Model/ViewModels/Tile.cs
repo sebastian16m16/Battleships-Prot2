@@ -74,6 +74,7 @@ namespace BattleShipsDz.Model.ViewModels
             this.GPosition = o.GPosition;
             this.type = o.type;
             this.tileName = o.tileName;
+            this.state = o.state;
 
         }
 

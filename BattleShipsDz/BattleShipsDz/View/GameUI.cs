@@ -120,20 +120,21 @@ namespace BattleShipsDz.View
         {
             if(e.Button == MouseButtons.Left)
             {
-                if (!SelectedBoat.Equals(Blank))
+                if(SelectedBoat != null)
                 {
-                    this.EventStack.Push(new EventState(PersonalGrid, BattleShipGrid, false, SelectedBoat, this.PersonalGridManagement.clicked));
-                    if (!this.PersonalGridManagement.Manage(this.SelectedBoat, (Tile)sender))
+                    if ((!SelectedBoat.Equals(Blank)) 
+                        && (((Tile)sender).state == TileState.UNTOUCHED))
                     {
-                        this.SelectedBoat = Blank;
+                        this.EventStack.Push(new EventState(PersonalGrid, BattleShipGrid, false, SelectedBoat, this.PersonalGridManagement.clicked));
+                        if (!this.PersonalGridManagement.Manage(this.SelectedBoat, (Tile)sender))
+                        {
+                            this.SelectedBoat = Blank;
+                        }
+                        OneMoveUndo = false;
                     }
-                    OneMoveUndo = false;
                 }
-                
             }else if(e.Button == MouseButtons.Right)
             {
-                //if(!OneMoveUndo)
-                //{
                 if(EventStack.Count != 0)
                 {
                     this.tempState = EventStack.Pop();
@@ -142,14 +143,6 @@ namespace BattleShipsDz.View
                     this.PersonalGrid.inheritGrid(tempState.getLastPersonalGrid());
                     OneMoveUndo = true;
                 }
-                
-                //}
-                //else
-                //{
-
-                //    MessageBox.Show("No more undo moves!");
-                //}
-
             }
             
         }
