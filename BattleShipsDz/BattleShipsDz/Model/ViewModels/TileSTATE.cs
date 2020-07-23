@@ -10,7 +10,9 @@ namespace BattleShipsDz.Model.ViewModels
     {
         UNTOUCHED,
         OCCUPIED,
-        HIT,
-        MISS
+        ATTEMPT,
+        MISS,
+        HIT
+        
     }
 }

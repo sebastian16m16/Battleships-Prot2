@@ -7,16 +7,20 @@ using BattleShipsDz.Model.ViewModels;
 
 namespace BattleShipsDz.Model.Events
 {
-    class EventState
+    class PGEventState
     {
-        public bool BoatPlaced = false;
-        private TileGrid personalGrid = new TileGrid();
-        private TileGrid battleShipsGrid = new TileGrid();
-        private Tile SelectedBoat = new Tile();
-        public bool Clicked = false;
+        public bool BoatPlaced { get; set; }
+        private TileGrid personalGrid { get; set; }
+        private TileGrid battleShipsGrid { get; set; }
+        private Tile SelectedBoat { get; set; }
+        public bool Clicked { get; set; }
 
-        public EventState(TileGrid pGrid, TileGrid bGrid, bool PlacedBoat, Tile lastTile, bool clicked)
+
+        public PGEventState(TileGrid pGrid, TileGrid bGrid, bool PlacedBoat, Tile lastTile, bool clicked)
         {
+            this.personalGrid = new TileGrid();
+            this.battleShipsGrid = new TileGrid();
+
             this.personalGrid.LoadGrid(pGrid.gridSize, pGrid.tilesImage);
             this.battleShipsGrid.LoadGrid(bGrid.gridSize, bGrid.tilesImage);
 
@@ -25,6 +29,7 @@ namespace BattleShipsDz.Model.Events
             this.BoatPlaced = PlacedBoat;
             this.SelectedBoat = lastTile;
             this.Clicked = clicked;
+
         }
 
         public TileGrid getLastPersonalGrid()

@@ -32,7 +32,6 @@ namespace BattleShipsDz.Model.ViewModels
                 for (int y = 0; y < gridSize.Height; y++)
                 {
                     tiles[x, y] = new Tile(x, y, tileImage, this.Location);
-
                     this.Controls.Add(tiles[x, y]);
                 }
             }

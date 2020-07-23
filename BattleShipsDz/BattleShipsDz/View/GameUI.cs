@@ -25,11 +25,11 @@ namespace BattleShipsDz.View
         private int PORT { get; set; }
         private Point lastPoint { get; set; }
         private Tile SelectedBoat { get; set; }
-        private PersonalGridManagement OpponentGridManagement { get; set; }
+        private OpponentGridManagement OpponentGridManagement { get; set; }
         private PersonalGridManagement PersonalGridManagement { get; set; }
-        private bool OneMoveUndo { get; set; }
-        private Stack<EventState> EventStack { get; set; }
-        private EventState tempState { get; set; }
+        private Stack<PGEventState> PGEventState { get; set; }
+        private OGEventState OGEventState { get; set; }
+        private PGEventState PGtempState { get; set; }
         private Tile Blank { get; set; }
 
 
@@ -40,7 +40,7 @@ namespace BattleShipsDz.View
             this.PlayerName = PlayerName;
             this.Host = Host;
             this.PORT = Port;
-            this.EventStack = new Stack<EventState>();
+            this.PGEventState = new Stack<PGEventState>();
             this.Blank = new Tile();
         }
 
@@ -61,7 +61,7 @@ namespace BattleShipsDz.View
 
             //OPPONENT GRID
             this.OpponentGrid.LoadGrid(new Size(10, 10), BattleShipsDz.Properties.Resources.opponentTile);
-            this.OpponentGridManagement = new PersonalGridManagement(OpponentGrid);
+            this.OpponentGridManagement = new OpponentGridManagement(OpponentGrid);
 
             foreach(Tile tile in OpponentGrid.Controls)
             {
@@ -113,7 +113,24 @@ namespace BattleShipsDz.View
 
         private void OpponentGridMouseDown(object sender, MouseEventArgs e)
         {
-            throw new NotImplementedException();
+            if (e.Button == MouseButtons.Left)
+            {
+                if(((Tile)sender).state == TileState.UNTOUCHED){
+                    if (!this.OpponentGridManagement.shotAttepmpted)
+                    {
+                        this.OGEventState = new OGEventState(this.OpponentGrid);
+                        this.OpponentGridManagement.Manage((Tile)sender);
+                    }
+                }
+            }
+            else if (e.Button == MouseButtons.Right)
+            {
+                if(this.OpponentGridManagement.shotAttepmpted == true)
+                {
+                    this.OpponentGrid.inheritGrid(OGEventState.getLastOpponentGrid());
+                    this.OpponentGridManagement.shotAttepmpted = false;
+                }
+            }
         }
 
         private void PersonalGridMouseDown(object sender, MouseEventArgs e)
@@ -125,23 +142,21 @@ namespace BattleShipsDz.View
                     if ((!SelectedBoat.Equals(Blank)) 
                         && (((Tile)sender).state == TileState.UNTOUCHED))
                     {
-                        this.EventStack.Push(new EventState(PersonalGrid, BattleShipGrid, false, SelectedBoat, this.PersonalGridManagement.clicked));
+                        this.PGEventState.Push(new PGEventState(PersonalGrid, BattleShipGrid, false, SelectedBoat, this.PersonalGridManagement.clicked));
                         if (!this.PersonalGridManagement.Manage(this.SelectedBoat, (Tile)sender))
                         {
                             this.SelectedBoat = Blank;
                         }
-                        OneMoveUndo = false;
                     }
                 }
             }else if(e.Button == MouseButtons.Right)
             {
-                if(EventStack.Count != 0)
+                if(PGEventState.Count != 0)
                 {
-                    this.tempState = EventStack.Pop();
-                    this.PersonalGridManagement.clicked = tempState.Clicked;
-                    this.SelectedBoat = tempState.GetSelectedBoat();
-                    this.PersonalGrid.inheritGrid(tempState.getLastPersonalGrid());
-                    OneMoveUndo = true;
+                    this.PGtempState = PGEventState.Pop();
+                    this.PersonalGridManagement.clicked = PGtempState.Clicked;
+                    this.SelectedBoat = PGtempState.GetSelectedBoat();
+                    this.PersonalGrid.inheritGrid(PGtempState.getLastPersonalGrid());
                 }
             }
             
@@ -151,7 +166,12 @@ namespace BattleShipsDz.View
         {
             if(((Tile)sender).ships > 0)
                 SelectedBoat = (Tile)sender;
-            this.EventStack.Push(new EventState(PersonalGrid, BattleShipGrid, true, SelectedBoat, this.PersonalGridManagement.clicked));
+            this.PGEventState.Push(new PGEventState(PersonalGrid, BattleShipGrid, false, SelectedBoat, this.PersonalGridManagement.clicked));
+        }
+
+        private void ShootBtn_Click(object sender, EventArgs e)
+        {
+            this.OpponentGridManagement.shotAttepmpted = false;
         }
     }
 }

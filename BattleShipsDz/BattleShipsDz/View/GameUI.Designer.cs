@@ -36,6 +36,7 @@
             this.minimizeBtn = new System.Windows.Forms.Button();
             this.TitleLabel = new System.Windows.Forms.Label();
             this.BattleShipsGrid = new BattleShipsDz.Model.ViewModels.TileGrid();
+            this.ShootBtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblPlayerName
@@ -130,12 +131,26 @@
             this.BattleShipsGrid.tilesImage = null;
             this.BattleShipsGrid.MouseDown += new System.Windows.Forms.MouseEventHandler(this.BattleShipGridMouseDown);
             // 
+            // ShootBtn
+            // 
+            this.ShootBtn.BackColor = System.Drawing.Color.Maroon;
+            this.ShootBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.ShootBtn.ForeColor = System.Drawing.Color.Black;
+            this.ShootBtn.Location = new System.Drawing.Point(1101, 591);
+            this.ShootBtn.Name = "ShootBtn";
+            this.ShootBtn.Size = new System.Drawing.Size(75, 23);
+            this.ShootBtn.TabIndex = 10;
+            this.ShootBtn.Text = "SHOOT";
+            this.ShootBtn.UseVisualStyleBackColor = false;
+            this.ShootBtn.Click += new System.EventHandler(this.ShootBtn_Click);
+            // 
             // GameUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.ClientSize = new System.Drawing.Size(1214, 626);
+            this.Controls.Add(this.ShootBtn);
             this.Controls.Add(this.TitleLabel);
             this.Controls.Add(this.minimizeBtn);
             this.Controls.Add(this.xBtn);
@@ -165,5 +180,6 @@
         private System.Windows.Forms.Button minimizeBtn;
         private System.Windows.Forms.Label TitleLabel;
         private Model.ViewModels.TileGrid BattleShipsGrid;
+        private System.Windows.Forms.Button ShootBtn;
     }
 }

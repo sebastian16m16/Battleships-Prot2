@@ -56,7 +56,8 @@
     <Compile Include="Model\Connection\BSClient.cs" />
     <Compile Include="Model\Connection\ClientSTATE.cs" />
     <Compile Include="Model\Connection\SimpleBSClient.cs" />
-    <Compile Include="Model\Events\EventState.cs" />
+    <Compile Include="Model\Events\OGEventState.cs" />
+    <Compile Include="Model\Events\PGEventState.cs" />
     <Compile Include="Model\ViewModels\Boats\CruiserBoat.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -80,6 +81,9 @@
     </Compile>
     <Compile Include="Model\ViewModels\TileState.cs" />
     <Compile Include="Controller\Main\Program.cs" />
+    <Compile Include="Model\ViewModels\TileStates\Attempt.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="View\GameUI.cs">
       <SubType>Form</SubType>
@@ -135,6 +139,7 @@
     <Content Include="Resources\Images\Instructions\TileInfo.png" />
     <Content Include="Resources\Images\Items\connected.png" />
     <Content Include="Resources\Images\Items\disconnected.png" />
+    <None Include="Resources\Images\TileStates\Attempt.png" />
     <Content Include="Resources\Images\TileStates\blankTile.png" />
     <Content Include="Resources\Images\TileStates\missTile.png" />
     <Content Include="Resources\Images\TileStates\opponentTile.png" />
