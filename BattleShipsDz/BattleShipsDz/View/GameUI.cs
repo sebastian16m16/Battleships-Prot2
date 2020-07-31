@@ -31,6 +31,7 @@ namespace BattleShipsDz.View
         private OGEventState OGEventState { get; set; }
         private PGEventState PGtempState { get; set; }
         private Tile Blank { get; set; }
+        private bool CanIPush { get; set; }
 
 
 
@@ -52,7 +53,6 @@ namespace BattleShipsDz.View
 
             // PERSONAL GRID
             this.PersonalGrid.LoadGrid(new Size(10, 10), BattleShipsDz.Properties.Resources.blankTile);
-            this.PersonalGridManagement = new PersonalGridManagement(PersonalGrid);
 
             foreach(Tile tile in PersonalGrid.Controls)
             {
@@ -75,6 +75,8 @@ namespace BattleShipsDz.View
             {
                 tile.MouseDown += BattleShipGridMouseDown;
             }
+
+            this.PersonalGridManagement = new PersonalGridManagement(PersonalGrid, BattleShipsGrid);
 
         }
 
@@ -142,11 +144,13 @@ namespace BattleShipsDz.View
                     if ((!SelectedBoat.Equals(Blank)) 
                         && (((Tile)sender).state == TileState.UNTOUCHED))
                     {
-                        this.PGEventState.Push(new PGEventState(PersonalGrid, BattleShipGrid, false, SelectedBoat, this.PersonalGridManagement.clicked));
-                        if (!this.PersonalGridManagement.Manage(this.SelectedBoat, (Tile)sender))
+                        //this.PGEventState.Push(new PGEventState(PersonalGrid, BattleShipGrid, SelectedBoat, this.PersonalGridManagement.clicked));
+                        
+                        if (!this.PersonalGridManagement.Manage(this.SelectedBoat, (Tile)sender, this.PGEventState))
                         {
                             this.SelectedBoat = Blank;
                         }
+                        
                     }
                 }
             }else if(e.Button == MouseButtons.Right)
@@ -166,7 +170,7 @@ namespace BattleShipsDz.View
         {
             if(((Tile)sender).ships > 0)
                 SelectedBoat = (Tile)sender;
-            this.PGEventState.Push(new PGEventState(PersonalGrid, BattleShipGrid, false, SelectedBoat, this.PersonalGridManagement.clicked));
+            //this.PGEventState.Push(new PGEventState(PersonalGrid, BattleShipGrid, SelectedBoat, this.PersonalGridManagement.clicked));
         }
 
         private void ShootBtn_Click(object sender, EventArgs e)

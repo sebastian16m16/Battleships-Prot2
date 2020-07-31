@@ -9,14 +9,13 @@ namespace BattleShipsDz.Model.Events
 {
     class PGEventState
     {
-        public bool BoatPlaced { get; set; }
         private TileGrid personalGrid { get; set; }
         private TileGrid battleShipsGrid { get; set; }
         private Tile SelectedBoat { get; set; }
         public bool Clicked { get; set; }
 
 
-        public PGEventState(TileGrid pGrid, TileGrid bGrid, bool PlacedBoat, Tile lastTile, bool clicked)
+        public PGEventState(TileGrid pGrid, TileGrid bGrid, Tile lastTile, bool clicked)
         {
             this.personalGrid = new TileGrid();
             this.battleShipsGrid = new TileGrid();
@@ -26,9 +25,9 @@ namespace BattleShipsDz.Model.Events
 
             this.personalGrid.inheritGrid(pGrid);
             this.battleShipsGrid.inheritGrid(bGrid);
-            this.BoatPlaced = PlacedBoat;
             this.SelectedBoat = lastTile;
             this.Clicked = clicked;
+
 
         }
 

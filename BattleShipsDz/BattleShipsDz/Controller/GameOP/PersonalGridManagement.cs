@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using BattleShipsDz.Model.Events;
 using BattleShipsDz.Model.ViewModels;
 
 
@@ -12,18 +13,20 @@ namespace BattleShipsDz.Controller.GameOP
     {
         private Tile SelectedTile { get; set; }
         private TileGrid TileGrid { get; set; }
+        private TileGrid BSGrid { get; set; }
         private Tile From { get; set; }
         private Tile To { get; set; }
         public bool clicked { get; set; }
 
         private Tile Blank = new Tile();
 
-        public PersonalGridManagement(TileGrid currentTileGrid)
+        public PersonalGridManagement(TileGrid currentTileGrid, TileGrid BSGrid)
         {
            this.TileGrid = currentTileGrid;
             this.clicked = false;
+            this.BSGrid = BSGrid;
         }
-        public bool Manage(Tile SelectedBoat, Tile LogicTile)
+        public bool Manage(Tile SelectedBoat, Tile LogicTile, Stack<PGEventState> pGEventState)
         {
             this.clicked = !clicked;
 
@@ -31,6 +34,7 @@ namespace BattleShipsDz.Controller.GameOP
             {
                 if (SelectedBoat != null)
                 {
+                    pGEventState.Push(new PGEventState(TileGrid, BSGrid, SelectedBoat, !this.clicked));
                     this.SelectedTile = SelectedBoat;
                     LogicTile.inheritTileInfo(SelectedTile);
                     LogicTile.state = TileState.OCCUPIED;
@@ -43,8 +47,12 @@ namespace BattleShipsDz.Controller.GameOP
             }
             else
             {
+                pGEventState.Push(new PGEventState(TileGrid, BSGrid, SelectedBoat, !this.clicked));
                 if (!PlaceBoat(LogicTile))
+                {
                     this.clicked = true;
+                    pGEventState.Pop();
+                }
             }
 
             return clicked;
