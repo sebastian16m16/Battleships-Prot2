@@ -35,3 +35,17 @@ G:\SCHool\Dizertatie\Battleships-Prot2\BattleShipsDz\BattleShipsDz\obj\Debug\Bat
 G:\SCHool\Dizertatie\Battleships-Prot2\BattleShipsDz\BattleShipsDz\obj\Debug\BattleShipsDz.csproj.CopyComplete
 G:\SCHool\Dizertatie\Battleships-Prot2\BattleShipsDz\BattleShipsDz\obj\Debug\BattleShipsDz.exe
 G:\SCHool\Dizertatie\Battleships-Prot2\BattleShipsDz\BattleShipsDz\obj\Debug\BattleShipsDz.pdb
+D:\users\f93424c\Documents\Learning\DIZERTORTION\Battleships-Prot2\BattleShipsDz\BattleShipsDz\bin\Debug\BattleShipsDz.exe.config
+D:\users\f93424c\Documents\Learning\DIZERTORTION\Battleships-Prot2\BattleShipsDz\BattleShipsDz\bin\Debug\BattleShipsDz.exe
+D:\users\f93424c\Documents\Learning\DIZERTORTION\Battleships-Prot2\BattleShipsDz\BattleShipsDz\bin\Debug\BattleShipsDz.pdb
+D:\users\f93424c\Documents\Learning\DIZERTORTION\Battleships-Prot2\BattleShipsDz\BattleShipsDz\bin\Debug\SimpleTCP.dll
+D:\users\f93424c\Documents\Learning\DIZERTORTION\Battleships-Prot2\BattleShipsDz\BattleShipsDz\obj\Debug\BattleShipsDz.csprojAssemblyReference.cache
+D:\users\f93424c\Documents\Learning\DIZERTORTION\Battleships-Prot2\BattleShipsDz\BattleShipsDz\obj\Debug\BattleShipsDz.Properties.Resources.resources
+D:\users\f93424c\Documents\Learning\DIZERTORTION\Battleships-Prot2\BattleShipsDz\BattleShipsDz\obj\Debug\BattleShipsDz.View.GameUI.resources
+D:\users\f93424c\Documents\Learning\DIZERTORTION\Battleships-Prot2\BattleShipsDz\BattleShipsDz\obj\Debug\BattleShipsDz.View.Login.resources
+D:\users\f93424c\Documents\Learning\DIZERTORTION\Battleships-Prot2\BattleShipsDz\BattleShipsDz\obj\Debug\BattleShipsDz.csproj.GenerateResource.cache
+D:\users\f93424c\Documents\Learning\DIZERTORTION\Battleships-Prot2\BattleShipsDz\BattleShipsDz\obj\Debug\BattleShipsDz.csproj.CopyComplete
+D:\users\f93424c\Documents\Learning\DIZERTORTION\Battleships-Prot2\BattleShipsDz\BattleShipsDz\obj\Debug\BattleShipsDz.exe
+D:\users\f93424c\Documents\Learning\DIZERTORTION\Battleships-Prot2\BattleShipsDz\BattleShipsDz\obj\Debug\BattleShipsDz.pdb
+D:\users\f93424c\Documents\Learning\DIZERTORTION\Battleships-Prot2\BattleShipsDz\BattleShipsDz\obj\Debug\BattleShipsDz.View.InfoForms.GameInfo.resources
+D:\users\f93424c\Documents\Learning\DIZERTORTION\Battleships-Prot2\BattleShipsDz\BattleShipsDz\obj\Debug\BattleShipsDz.View.TileInfo.resources

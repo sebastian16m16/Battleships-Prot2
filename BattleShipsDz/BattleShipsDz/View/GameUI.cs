@@ -12,6 +12,7 @@ using BattleShipsDz.Model.ViewModels;
 using BattleShipsDz.Controller.GameOP;
 using BattleShipsDz.Model.Events;
 using System.Diagnostics;
+using BattleShipsDz.View.InfoForms;
 
 namespace BattleShipsDz.View
 {
@@ -27,6 +28,7 @@ namespace BattleShipsDz.View
         private Tile SelectedBoat { get; set; }
         private OpponentGridManagement OpponentGridManagement { get; set; }
         private PersonalGridManagement PersonalGridManagement { get; set; }
+        private BattleShipsGridManagement BattleShipsGridManagement { get; set; }
         private Stack<PGEventState> PGEventState { get; set; }
         private OGEventState OGEventState { get; set; }
         private PGEventState PGtempState { get; set; }
@@ -77,6 +79,8 @@ namespace BattleShipsDz.View
             }
 
             this.PersonalGridManagement = new PersonalGridManagement(PersonalGrid, BattleShipsGrid);
+
+            this.BattleShipsGridManagement = new BattleShipsGridManagement(BattleShipsGrid);
 
         }
 
@@ -148,6 +152,7 @@ namespace BattleShipsDz.View
                         
                         if (!this.PersonalGridManagement.Manage(this.SelectedBoat, (Tile)sender, this.PGEventState))
                         {
+                            this.BattleShipsGridManagement.ConsumeBoat(SelectedBoat);
                             this.SelectedBoat = Blank;
                         }
                         
@@ -161,6 +166,7 @@ namespace BattleShipsDz.View
                     this.PersonalGridManagement.clicked = PGtempState.Clicked;
                     this.SelectedBoat = PGtempState.GetSelectedBoat();
                     this.PersonalGrid.inheritGrid(PGtempState.getLastPersonalGrid());
+                    this.BattleShipGrid.inheritGrid(PGtempState.getLastBattleshipGrid());
                 }
             }
             
@@ -168,14 +174,28 @@ namespace BattleShipsDz.View
 
         private void BattleShipGridMouseDown(object sender, MouseEventArgs e)
         {
-            if(((Tile)sender).ships > 0)
+            if (((Tile)sender).ships > 0)
                 SelectedBoat = (Tile)sender;
+            else
+                MessageBox.Show("You have no more " + ((Tile)sender).tileName + " Ships left!");
             //this.PGEventState.Push(new PGEventState(PersonalGrid, BattleShipGrid, SelectedBoat, this.PersonalGridManagement.clicked));
         }
 
         private void ShootBtn_Click(object sender, EventArgs e)
         {
             this.OpponentGridManagement.shotAttepmpted = false;
+        }
+
+        private void gameInfoBtn_Click(object sender, EventArgs e)
+        {
+            GameInfo gameInfo = new GameInfo();
+            gameInfo.Show();
+        }
+
+        private void tileInfoBtn_Click(object sender, EventArgs e)
+        {
+            TileInfo tileInfo = new TileInfo();
+            tileInfo.Show();
         }
     }
 }

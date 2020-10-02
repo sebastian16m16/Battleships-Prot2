@@ -21,7 +21,7 @@ namespace BattleShipsDz.Model.ViewModels.Boats
             this.ships = 2;
             this.Image = Properties.Resources.PatrolBoat;
             this.type = typeof(PatrolBoat);
-            this.tileName = "Patrol Boat";
+            this.tileName = "Patrol";
 
             //
             //Number of Boats Left
