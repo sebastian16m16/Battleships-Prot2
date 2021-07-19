@@ -33,7 +33,7 @@ namespace BattleShipsDz.View
         private OGEventState OGEventState { get; set; }
         private PGEventState PGtempState { get; set; }
         private Tile Blank { get; set; }
-        private bool CanIPush { get; set; }
+        private bool Ready { get; set; }
 
 
 
@@ -45,6 +45,7 @@ namespace BattleShipsDz.View
             this.PORT = Port;
             this.PGEventState = new Stack<PGEventState>();
             this.Blank = new Tile();
+            this.Ready = false;
         }
 
         private void GameUI_Load(object sender, EventArgs e)
@@ -148,14 +149,11 @@ namespace BattleShipsDz.View
                     if ((!SelectedBoat.Equals(Blank)) 
                         && (((Tile)sender).state == TileState.UNTOUCHED))
                     {
-                        //this.PGEventState.Push(new PGEventState(PersonalGrid, BattleShipGrid, SelectedBoat, this.PersonalGridManagement.clicked));
-                        
                         if (!this.PersonalGridManagement.Manage(this.SelectedBoat, (Tile)sender, this.PGEventState))
                         {
                             this.BattleShipsGridManagement.ConsumeBoat(SelectedBoat);
                             this.SelectedBoat = Blank;
                         }
-                        
                     }
                 }
             }else if(e.Button == MouseButtons.Right)
@@ -166,7 +164,7 @@ namespace BattleShipsDz.View
                     this.PersonalGridManagement.clicked = PGtempState.Clicked;
                     this.SelectedBoat = PGtempState.GetSelectedBoat();
                     this.PersonalGrid.inheritGrid(PGtempState.getLastPersonalGrid());
-                    this.BattleShipGrid.inheritGrid(PGtempState.getLastBattleshipGrid());
+                    this.BattleShipsGrid.inheritGrid(PGtempState.getLastBattleshipGrid());
                 }
             }
             
@@ -174,16 +172,25 @@ namespace BattleShipsDz.View
 
         private void BattleShipGridMouseDown(object sender, MouseEventArgs e)
         {
-            if (((Tile)sender).ships > 0)
-                SelectedBoat = (Tile)sender;
+            if (Ready == false)
+            {
+                if (((Tile)sender).ships > 0)
+                    SelectedBoat = (Tile)sender;
+                else
+                    MessageBox.Show("You have no more " + ((Tile)sender).tileName + " Ships left!");
+            }
             else
-                MessageBox.Show("You have no more " + ((Tile)sender).tileName + " Ships left!");
-            //this.PGEventState.Push(new PGEventState(PersonalGrid, BattleShipGrid, SelectedBoat, this.PersonalGridManagement.clicked));
+            {
+                MessageBox.Show("The Game has Started!");
+            }
         }
 
         private void ShootBtn_Click(object sender, EventArgs e)
         {
-            this.OpponentGridManagement.shotAttepmpted = false;
+            if (Ready)
+                this.OpponentGridManagement.shotAttepmpted = false;
+            else
+                MessageBox.Show("You are PREP Faze. Finish placing your boats.");
         }
 
         private void gameInfoBtn_Click(object sender, EventArgs e)
@@ -196,6 +203,19 @@ namespace BattleShipsDz.View
         {
             TileInfo tileInfo = new TileInfo();
             tileInfo.Show();
+        }
+
+        private void readyBtn_Click(object sender, EventArgs e)
+        {
+            foreach (Tile tile in this.BattleShipsGrid.tiles)
+            {
+                if (tile.ships != 0)
+                {
+                    MessageBox.Show("You need to use ALL Battleships!");
+                    return;
+                }
+            }
+            Ready = PersonalGridManagement.Freeze(PGEventState);
         }
     }
 }

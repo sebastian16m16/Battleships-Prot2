@@ -194,5 +194,11 @@ namespace BattleShipsDz.Controller.GameOP
 
             return false;
         }
+
+        public bool Freeze(Stack<PGEventState> pGEventState)
+        {
+            pGEventState.Clear();
+            return true; 
+        }
     }
 }
