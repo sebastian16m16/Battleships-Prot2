@@ -7,17 +7,18 @@ using SimpleTCP;
 using System.Net;
 using System.Net.Sockets;
 using System.Text.RegularExpressions;
+using BSServerPrj.Model;
 
 namespace BSServerPrj.Control
-{ 
+{
     class BSServerOP
     {
-        private BSServer.Model.BSServer server;
+        private BSServer Server;
         private int rows { get; }
         private int columns { get; }
         private string clientMessage;
         private int currentClient = 0;
-        private TcpClient serverClient;
+        private TcpClient ServerClient;
 
         //coordonates from client
         private string[] coordonates;
@@ -25,13 +26,12 @@ namespace BSServerPrj.Control
 
         public BSServerOP(BSServer _newServer)
         {
-            this.server = _newServer;
+            this.Server = _newServer;
             rows = columns = 10;
-
             //assign methods for behaviour
-            server.ClientConnected += client_connected;
-            server.ClientDisconnected += client_disconnected;
-            server.DataReceived += data_received;
+            Server.ClientConnected += client_connected;
+            Server.ClientDisconnected += client_disconnected;
+            Server.DataReceived += data_received;
         }
 
 
@@ -44,7 +44,7 @@ namespace BSServerPrj.Control
         //
         private void client_disconnected(object sender, TcpClient e)
         {
-            server.BroadcastLine("OPPONENT_DISCONNECTED");
+            Server.BroadcastLine("OPPONENT_DISCONNECTED");
 
             currentClient--;
         }
@@ -52,27 +52,27 @@ namespace BSServerPrj.Control
         //
         //What Happens when a client connects
         //
-        private void client_connected(object sender, e)
+        private void client_connected(object sender, TcpClient e)
         {
-            if (server.ConnectedClientsCount < 2)
+            if (Server.ConnectedClientsCount < 2)
             {
                 //add client
-                server.clientsConnected[currentClient] = (BSClient)e;
+                Server.clientsConnected[currentClient] = (BSClient)e;
 
                 //set client to CONNECTED state
-                server.clientsConnected[currentClient].state = ClientSTATE.CONNECTED;
+                Server.clientsConnected[currentClient].state = ClientSTATE.CONNECTED;
 
                 //increment client clientsConnected index
                 currentClient++;
 
                 //Send accepted response
-                server.SendLineToClient("SUCCESS", (BSClient)e);
+                Server.SendLineToClient("SUCCESS", (BSClient)e);
                 Console.WriteLine("Client with IP: " + ((IPEndPoint)e.Client.RemoteEndPoint).Address.ToString() + " ----> Connected!");
 
             }
             else
             {
-                server.SendLineToClient("FAILED", (BSClient)e);
+                Server.SendLineToClient("FAILED", (BSClient)e);
                 ((BSClient)e).state = ClientSTATE.FAILED_CONNECTION;
                 ((BSClient)e).Close();
                 Console.WriteLine("FAILED");
@@ -87,37 +87,37 @@ namespace BSServerPrj.Control
         {
             clientMessage = e.MessageString;
             Console.WriteLine(clientMessage);
-            serverClient = (BSClient)sender;
+            ServerClient = (BSClient)sender;
 
-            switch (serverClient.state)
+            switch (ServerClient.state)
             {
                 case ClientSTATE.CONNECTED:
 
-                    serverClient.state = ClientSTATE.SEND_NAME;
-                    server.SendLineToClient("SEND_NAME", serverClient);
+                    ServerClient.state = ClientSTATE.SEND_NAME;
+                    Server.SendLineToClient("SEND_NAME", ServerClient);
                     break;
 
 
                 case ClientSTATE.SEND_NAME:
 
-                    serverClient.state = ClientSTATE.GET_SET;
-                    serverClient.Name = clientMessage;
-                    server.SendLineToClient("GET_SET", serverClient);
+                    ServerClient.state = ClientSTATE.GET_SET;
+                    ServerClient.Name = clientMessage;
+                    Server.SendLineToClient("GET_SET", ServerClient);
                     break;
 
                 case ClientSTATE.GET_SET:
 
                     if (clientMessage == "SET")
                     {
-                        serverClient.state = ClientSTATE.SEND_BOARD;
-                        server.SendLineToClient("SEND_BOARD", serverClient);
+                        ServerClient.state = ClientSTATE.SEND_BOARD;
+                        Server.SendLineToClient("SEND_BOARD", ServerClient);
                     }
                     break;
 
                 case ClientSTATE.SEND_BOARD:
 
-                    serverClient.personalTable = getBoard(clientMessage);
-                    serverClient.state = ClientSTATE.WAIT_OPPONNENT_CONNECTION;
+                    ServerClient.personalTable = getBoard(clientMessage);
+                    ServerClient.state = ClientSTATE.WAIT_OPPONNENT_CONNECTION;
                     break;
 
                 case ClientSTATE.WAIT_OPPONNENT_CONNECTION:
@@ -125,15 +125,15 @@ namespace BSServerPrj.Control
                     //check to see if every client is in WAIT_OPPONENT_CONNECTION state
                     if (shouldWeStart())
                     {
-                        server.BroadcastLine("START");
-                        server.SendLineToClient("YOUR_TURN", server.clientsConnected[0]);
-                        server.clientsConnected[0].state = ClientSTATE.YOUR_TURN;
-                        server.clientsConnected[1].state = ClientSTATE.WAIT_OPPONENT_TURN;
+                        Server.BroadcastLine("START");
+                        Server.SendLineToClient("YOUR_TURN", Server.clientsConnected[0]);
+                        Server.clientsConnected[0].state = ClientSTATE.YOUR_TURN;
+                        Server.clientsConnected[1].state = ClientSTATE.WAIT_OPPONENT_TURN;
 
                     }
                     else
                     {
-                        server.SendLineToClient("WAIT_OPPONENT_CONNECTION", serverClient);
+                        Server.SendLineToClient("WAIT_OPPONENT_CONNECTION", ServerClient);
                     }
                     break;
 
@@ -143,16 +143,16 @@ namespace BSServerPrj.Control
                     {
                         shoot(int.Parse(coordonates[0]), int.Parse(coordonates[1]));
 
-                        server.SendLineToClient("YOUR_TURN", opponent());
+                        Server.SendLineToClient("YOUR_TURN", opponent());
 
                         if (!GameStatus())
                         {
-                            server.BroadcastLine("END");
+                            Server.BroadcastLine("END");
                             break;
                         }
 
                         //change turns
-                        serverClient.state = ClientSTATE.WAIT_OPPONENT_TURN;
+                        ServerClient.state = ClientSTATE.WAIT_OPPONENT_TURN;
                         opponent().state = ClientSTATE.YOUR_TURN;
                     }
 
@@ -189,7 +189,7 @@ namespace BSServerPrj.Control
         public bool shouldWeStart()
         {
 
-            foreach (var client in server.clientsConnected)
+            foreach (var client in Server.clientsConnected)
             {
                 if (client.state != ClientSTATE.WAIT_OPPONNENT_CONNECTION)
                 {
@@ -203,7 +203,7 @@ namespace BSServerPrj.Control
         //get opponent of player who's turn is
         public BSClient opponent()
         {
-            foreach (var client in server.clientsConnected)
+            foreach (var client in Server.clientsConnected)
             {
                 if (client.state == ClientSTATE.WAIT_OPPONENT_TURN)
                     return client;
@@ -216,7 +216,7 @@ namespace BSServerPrj.Control
         //
         public BSClient thisPlayer()
         {
-            foreach (var client in server.clientsConnected)
+            foreach (var client in Server.clientsConnected)
             {
                 if (client.state == ClientSTATE.YOUR_TURN)
                     return client;

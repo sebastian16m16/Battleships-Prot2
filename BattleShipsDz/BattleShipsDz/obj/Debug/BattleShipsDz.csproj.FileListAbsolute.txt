@@ -66,3 +66,17 @@ E:\SCHool\Dizertatie\Battleships-Prot2\BattleShipsDz\BattleShipsDz\obj\Debug\Bat
 E:\SCHool\Dizertatie\Battleships-Prot2\BattleShipsDz\BattleShipsDz\obj\Debug\BattleShipsDz.csproj.CopyComplete
 E:\SCHool\Dizertatie\Battleships-Prot2\BattleShipsDz\BattleShipsDz\obj\Debug\BattleShipsDz.exe
 E:\SCHool\Dizertatie\Battleships-Prot2\BattleShipsDz\BattleShipsDz\obj\Debug\BattleShipsDz.pdb
+C:\Users\carla\Desktop\Dizertatie\BattleShipsDz\BattleShipsDz\bin\Debug\BattleShipsDz.exe.config
+C:\Users\carla\Desktop\Dizertatie\BattleShipsDz\BattleShipsDz\bin\Debug\BattleShipsDz.exe
+C:\Users\carla\Desktop\Dizertatie\BattleShipsDz\BattleShipsDz\bin\Debug\BattleShipsDz.pdb
+C:\Users\carla\Desktop\Dizertatie\BattleShipsDz\BattleShipsDz\bin\Debug\SimpleTCP.dll
+C:\Users\carla\Desktop\Dizertatie\BattleShipsDz\BattleShipsDz\obj\Debug\BattleShipsDz.csprojAssemblyReference.cache
+C:\Users\carla\Desktop\Dizertatie\BattleShipsDz\BattleShipsDz\obj\Debug\BattleShipsDz.Properties.Resources.resources
+C:\Users\carla\Desktop\Dizertatie\BattleShipsDz\BattleShipsDz\obj\Debug\BattleShipsDz.View.GameUI.resources
+C:\Users\carla\Desktop\Dizertatie\BattleShipsDz\BattleShipsDz\obj\Debug\BattleShipsDz.View.InfoForms.GameInfo.resources
+C:\Users\carla\Desktop\Dizertatie\BattleShipsDz\BattleShipsDz\obj\Debug\BattleShipsDz.View.Login.resources
+C:\Users\carla\Desktop\Dizertatie\BattleShipsDz\BattleShipsDz\obj\Debug\BattleShipsDz.View.TileInfo.resources
+C:\Users\carla\Desktop\Dizertatie\BattleShipsDz\BattleShipsDz\obj\Debug\BattleShipsDz.csproj.GenerateResource.cache
+C:\Users\carla\Desktop\Dizertatie\BattleShipsDz\BattleShipsDz\obj\Debug\BattleShipsDz.csproj.CopyComplete
+C:\Users\carla\Desktop\Dizertatie\BattleShipsDz\BattleShipsDz\obj\Debug\BattleShipsDz.exe
+C:\Users\carla\Desktop\Dizertatie\BattleShipsDz\BattleShipsDz\obj\Debug\BattleShipsDz.pdb

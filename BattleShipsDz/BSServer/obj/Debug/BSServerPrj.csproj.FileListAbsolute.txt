@@ -1,0 +1,3 @@
+C:\Users\carla\Desktop\Dizertatie\BattleShipsDz\BSServer\obj\Debug\BSServerPrj.csprojAssemblyReference.cache
+C:\Users\carla\Desktop\Dizertatie\BattleShipsDz\BSServer\obj\Debug\BSServerPrj.Properties.Resources.resources
+C:\Users\carla\Desktop\Dizertatie\BattleShipsDz\BSServer\obj\Debug\BSServerPrj.csproj.GenerateResource.cache
