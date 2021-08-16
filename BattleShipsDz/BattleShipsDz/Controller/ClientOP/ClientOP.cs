@@ -9,7 +9,7 @@ using BattleShipsDz.Model.Connection;
 using SimpleTCP;
 
 namespace BattleShipsDz.Controller.ClientOP
-{
+{// Test commit
     class ClientOP
     {
         private SimpleBSClient client;

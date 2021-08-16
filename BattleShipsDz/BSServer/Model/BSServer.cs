@@ -8,7 +8,7 @@ using SimpleTCP;
 using System.Net;
 using System.Net.Sockets;
 
-namespace BSServer.Model
+namespace BSServerPrj.Model
 {
     class BSServer : SimpleTcpServer
     {
