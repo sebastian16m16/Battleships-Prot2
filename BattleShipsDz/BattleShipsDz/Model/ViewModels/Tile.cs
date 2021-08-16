@@ -76,6 +76,10 @@ namespace BattleShipsDz.Model.ViewModels
             this.tileName = o.tileName;
             this.state = o.state;
 
+            if(this.NoOfBoatsLeft != null)
+            {
+                this.NoOfBoatsLeft.Text = this.ships.ToString();
+            }
         }
 
         public void updateGridLocation(Point newLocation)

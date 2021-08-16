@@ -21,7 +21,7 @@ namespace BattleShipsDz.Model.Events
             this.battleShipsGrid = new TileGrid();
 
             this.personalGrid.LoadGrid(pGrid.gridSize, pGrid.tilesImage);
-            this.battleShipsGrid.LoadGrid(bGrid.gridSize, bGrid.tilesImage);
+            this.battleShipsGrid.LoadGrid(bGrid.gridSize, bGrid.tilesImage, true);
 
             this.personalGrid.inheritGrid(pGrid);
             this.battleShipsGrid.inheritGrid(bGrid);

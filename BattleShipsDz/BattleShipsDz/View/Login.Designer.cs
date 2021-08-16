@@ -41,27 +41,27 @@
             // 
             // txtUserName
             // 
-            this.txtUserName.Font = new System.Drawing.Font("Niagara Engraved", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtUserName.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtUserName.Location = new System.Drawing.Point(127, 138);
             this.txtUserName.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.txtUserName.Name = "txtUserName";
-            this.txtUserName.Size = new System.Drawing.Size(68, 29);
+            this.txtUserName.Size = new System.Drawing.Size(68, 30);
             this.txtUserName.TabIndex = 0;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Niagara Engraved", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(125, 106);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(37, 22);
+            this.label1.Size = new System.Drawing.Size(64, 25);
             this.label1.TabIndex = 1;
             this.label1.Text = "Name";
             // 
             // btnStart
             // 
-            this.btnStart.Font = new System.Drawing.Font("Niagara Engraved", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnStart.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnStart.Location = new System.Drawing.Point(266, 329);
             this.btnStart.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.btnStart.Name = "btnStart";
@@ -73,7 +73,7 @@
             // 
             // btnExit
             // 
-            this.btnExit.Font = new System.Drawing.Font("Niagara Engraved", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnExit.Location = new System.Drawing.Point(9, 329);
             this.btnExit.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.btnExit.Name = "btnExit";
@@ -86,58 +86,58 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Niagara Engraved", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(78, 262);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(61, 22);
+            this.label2.Size = new System.Drawing.Size(74, 17);
             this.label2.TabIndex = 4;
             this.label2.Text = "Server IP: ";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Niagara Engraved", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(97, 300);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(42, 22);
+            this.label3.Size = new System.Drawing.Size(55, 17);
             this.label3.TabIndex = 5;
             this.label3.Text = "PORT: ";
             // 
             // txtServerIP
             // 
-            this.txtServerIP.Font = new System.Drawing.Font("Niagara Engraved", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtServerIP.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtServerIP.Location = new System.Drawing.Point(143, 262);
             this.txtServerIP.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.txtServerIP.Name = "txtServerIP";
-            this.txtServerIP.Size = new System.Drawing.Size(68, 29);
+            this.txtServerIP.Size = new System.Drawing.Size(68, 30);
             this.txtServerIP.TabIndex = 1;
             // 
             // txtServerPORT
             // 
-            this.txtServerPORT.Font = new System.Drawing.Font("Niagara Engraved", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtServerPORT.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtServerPORT.Location = new System.Drawing.Point(143, 300);
             this.txtServerPORT.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.txtServerPORT.Name = "txtServerPORT";
-            this.txtServerPORT.Size = new System.Drawing.Size(36, 29);
+            this.txtServerPORT.Size = new System.Drawing.Size(36, 30);
             this.txtServerPORT.TabIndex = 2;
             // 
             // TitleLabel
             // 
             this.TitleLabel.AutoSize = true;
-            this.TitleLabel.Font = new System.Drawing.Font("Niagara Engraved", 24.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TitleLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 24.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TitleLabel.ForeColor = System.Drawing.Color.Black;
             this.TitleLabel.Location = new System.Drawing.Point(22, 11);
             this.TitleLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.TitleLabel.Name = "TitleLabel";
-            this.TitleLabel.Size = new System.Drawing.Size(101, 35);
+            this.TitleLabel.Size = new System.Drawing.Size(182, 38);
             this.TitleLabel.TabIndex = 8;
             this.TitleLabel.Text = "BattleShips";
             // 
             // Login
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(4F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.ClientSize = new System.Drawing.Size(324, 372);
@@ -150,7 +150,7 @@
             this.Controls.Add(this.btnStart);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtUserName);
-            this.Font = new System.Drawing.Font("Niagara Engraved", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.Color.Maroon;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
